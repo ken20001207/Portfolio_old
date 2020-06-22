@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Spring } from "react-spring/renderprops";
 import "./App.less";
-import { Row, Col } from "rsuite";
+import { Container, Row, Col } from "react-grid-system";
 import * as easing from "d3-ease";
 
 interface State {
@@ -51,21 +51,23 @@ class App extends Component<{}, State> {
         return (
             <div className="main">
                 <div className="topbar">
-                    <Row>
-                        <Col lg={4}>
-                            <h5>Yuanlin Lin</h5>
-                        </Col>
-                        <Col lg={17}></Col>
-                        <Col lg={1}>
-                            <p>繁</p>
-                        </Col>
-                        <Col lg={1}>
-                            <p>简</p>
-                        </Col>
-                        <Col lg={1}>
-                            <p>Eng</p>
-                        </Col>
-                    </Row>
+                    <Container>
+                        <Row>
+                            <Col sm={3}>
+                                <h5>Yuanlin Lin</h5>
+                            </Col>
+                            <Col sm={6}></Col>
+                            <Col sm={1}>
+                                <p>繁</p>
+                            </Col>
+                            <Col sm={1}>
+                                <p>简</p>
+                            </Col>
+                            <Col sm={1}>
+                                <p>Eng</p>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
                 <div className="social-link">
                     <div className="icon">
@@ -89,8 +91,8 @@ class App extends Component<{}, State> {
                 >
                     {(colorProps) => (
                         <Spring
-                            from={{ bottom: 0 }}
-                            to={{ bottom: (this.state.timer % 2) * 16 }}
+                            from={{ bottom: 12 }}
+                            to={{ bottom: (this.state.timer % 2) * 16 + 12 }}
                             config={{ easing: easing.easeCubicInOut, duration: 1000 }}
                         >
                             {(floatprops) => (
@@ -109,7 +111,7 @@ class App extends Component<{}, State> {
 
                 <Spring
                     from={{ left: "40%" }}
-                    to={{ left: this.state.page === "welcome" ? "40%" : "65%" }}
+                    to={{ left: this.state.page === "welcome" ? "40%" : "60%" }}
                     config={{ easing: easing.easeCubicInOut }}
                 >
                     {(titleProps) => (
@@ -147,7 +149,7 @@ class App extends Component<{}, State> {
 
                 <Spring
                     from={{ width: "15%" }}
-                    to={{ width: this.state.page === "about" ? "55%" : "15%" }}
+                    to={{ width: this.state.page === "about" ? "45%" : "15%" }}
                     config={{ easing: easing.easeCubicInOut, delay: 150, duration: 1200 }}
                 >
                     {(bgWidthProps) => (
