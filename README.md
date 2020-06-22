@@ -1,26 +1,7 @@
-# Create-React-App with Typescript and Less template
+# My personal portfolio
 
-This repo is a CRA (Create-React-App) initial template with **Typescript** and **Less**.  
-Made by Yuanlin Lin.
+This is my personal portfolio website, hope you like it.
 
-## Usage
+## Online version
 
-Clone this repo and start coding in `src` directory.
-
-## Scripts
-
-`yarn install`
-
-Install dependencies.
-
-`yarn start`
-
-Start developement in localhost.
-
-`yarn build`
-
-Build a production package.
-
-`yarn eject`
-
-Eject to pure webpackage.
+You can view the online version on [https://portfolio.linyuanlin.com](https://portfolio.linyuanlin.com).
