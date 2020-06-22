@@ -10,7 +10,6 @@ interface State {
 }
 
 class App extends Component<{}, State> {
-    timer: any;
     constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
@@ -19,6 +18,7 @@ class App extends Component<{}, State> {
         };
     }
 
+    /** Get current page by scrollY */
     locateSection = () => {
         if (window.scrollY === 0) this.setState({ page: "welcome" });
         else if (window.scrollY >= 0) this.setState({ page: "about" });
@@ -26,20 +26,14 @@ class App extends Component<{}, State> {
 
     componentDidMount = () => {
         // timer for animation
-        this.timer = setInterval(() => this.setState({ timer: this.state.timer + 1 }), 1000);
+        setInterval(() => this.setState({ timer: this.state.timer + 1 }), 1000);
 
         // scroll listener
-        window.addEventListener("scroll", this.handleScroll);
+        window.addEventListener("scroll", () => {
+            this.locateSection();
+        });
 
         // locate the section of begin
-        this.locateSection();
-    };
-
-    componentWillUnmount = () => {
-        window.removeEventListener("scroll", this.handleScroll);
-    };
-
-    handleScroll = () => {
         this.locateSection();
     };
 
