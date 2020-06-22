@@ -35,6 +35,14 @@ class App extends Component<{}, State> {
 
         // locate the section of begin
         this.locateSection();
+
+        const ele = document.getElementById("ipl-progress-indicator");
+        if (ele) {
+            ele.classList.add("available");
+            setTimeout(() => {
+                ele.outerHTML = "";
+            }, 2000);
+        }
     };
 
     render() {
