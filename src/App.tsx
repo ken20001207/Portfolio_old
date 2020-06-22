@@ -38,10 +38,12 @@ class App extends Component<{}, State> {
 
         const ele = document.getElementById("ipl-progress-indicator");
         if (ele) {
-            ele.classList.add("available");
             setTimeout(() => {
-                ele.outerHTML = "";
-            }, 2000);
+                ele.classList.add("available");
+                setTimeout(() => {
+                    ele.outerHTML = "";
+                }, 2000);
+            }, 500);
         }
     };
 
