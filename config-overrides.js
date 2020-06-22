@@ -1,4 +1,9 @@
 const { override, addLessLoader } = require("customize-cra");
-const path = require("path");
 
-module.exports = override(addLessLoader());
+module.exports = override(
+    addLessLoader({
+        lessOptions: {
+            javascriptEnabled: true,
+        },
+    })
+);
