@@ -1,7 +1,137 @@
+@color1: #f2e9e4;
+@color2: #c9ada7;
+@color3: #9a8c98;
+@color4: #4a4e69;
+@color5: #22223b;
+
+@base-color: @color3;
+
 html,
 body {
-    height: 100vh;
+    height: 600vh;
     width: 100%;
     margin: 0;
     padding: 0;
+}
+
+.main {
+    padding: 32px 5%;
+    width: 100%;
+    height: calc(100vh - 64px);
+    position: fixed;
+
+    .topbar {
+        height: 5vh;
+        padding: 0 18px;
+        h5 {
+            font-size: 24px;
+            font-weight: 800;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 800;
+        }
+    }
+
+    .social-link {
+        position: absolute;
+        top: calc(50vh - 104px);
+        left: 95%;
+        .icon {
+            margin-bottom: 16px;
+            img {
+                width: 30px;
+            }
+        }
+    }
+
+    .scroll-down-button {
+        position: absolute;
+        width: 100%;
+        .scroll-down-button-inner {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            p {
+                margin-top: 18px;
+                position: relative;
+                font-weight: bolder;
+            }
+        }
+    }
+
+    .title {
+        position: absolute;
+        top: 35vh;
+        white-space: nowrap;
+
+        .raise-warpper {
+            height: auto;
+            overflow-y: hidden;
+            width: 720px;
+            h1 {
+                position: relative;
+                font-size: 108px;
+                line-height: 108px;
+            }
+
+            h2 {
+                position: relative;
+                font-size: 72px;
+                line-height: 80px;
+                .highlight-text {
+                    display: inline-block;
+                    .text-bg {
+                        background-color: @color1;
+                        height: 36px;
+                        position: relative;
+                        left: 36px;
+                        margin-bottom: -80px;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+    }
+
+    .intro {
+        position: absolute;
+        height: calc(95vh - 64px);
+        background-color: @color2;
+        z-index: -2;
+        .about {
+            position: relative;
+            left: 20%;
+            top: 35vh;
+            .raise-warpper {
+                height: auto;
+                overflow: hidden;
+                h3 {
+                    font-size: 28px;
+                    margin-bottom: 18px;
+                    position: relative;
+                    white-space: nowrap;
+                }
+
+                h4 {
+                    color: white;
+                    font-size: 24px;
+                    line-height: 36px;
+                    position: relative;
+                    white-space: nowrap;
+                    .highlight-text {
+                        display: inline-block;
+                        .text-bg {
+                            background-color: @color3;
+                            height: 16px;
+                            position: relative;
+                            left: 8px;
+                            margin-bottom: -36px;
+                            z-index: -1;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
