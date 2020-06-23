@@ -1,9 +1,11 @@
 @import "../../variables.less";
 
 .serviceBG {
+    position: relative;
     width: 100%;
     height: calc(95vh - 64px);
     svg {
+        float: left;
         width: 100%;
         height: calc(95vh - 64px);
 
@@ -18,13 +20,11 @@
 
     .description {
         position: absolute;
-        top: 20vh;
-        left: 15%;
+        top: 15vh;
+        left: calc(50% - 204px);
         font-weight: 800;
-
         h1 {
             font-size: 36px;
-            position: relative;
         }
 
         p {
@@ -46,9 +46,9 @@
 
     .skills {
         position: absolute;
-        top: 19vh;
-        left: 56%;
-        width: 35%;
+        top: calc(50vh - 400px);
+        left: calc(50% - 240px);
+        width: 80%;
         font-weight: 800;
         h5 {
             position: relative;
