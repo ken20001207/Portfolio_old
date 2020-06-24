@@ -5,16 +5,17 @@ import * as easing from "d3-ease";
 import "./About.less";
 
 interface Props {
-    page: string;
+    page: number;
 }
 
 export default class About extends React.Component<Props> {
+    pageCode = 1;
     render() {
         var page = this.props.page;
         return (
             <Spring
                 from={{ width: "0%" }}
-                to={{ width: page === "about" ? "45%" : "0%" }}
+                to={{ width: page === this.pageCode ? "45%" : "0%" }}
                 config={{ easing: easing.easeCubicInOut, delay: 150, duration: 1200 }}
             >
                 {(bgWidthProps) => (
@@ -22,7 +23,7 @@ export default class About extends React.Component<Props> {
                         <div className="about">
                             <Spring
                                 from={{ top: 72 }}
-                                to={{ top: page === "about" ? 0 : 72 }}
+                                to={{ top: page === this.pageCode ? 0 : 72 }}
                                 config={{ easing: easing.easeCubicInOut, duration: 800, delay: 450 }}
                             >
                                 {(props) => (
@@ -33,7 +34,7 @@ export default class About extends React.Component<Props> {
                             </Spring>
                             <Spring
                                 from={{ top: 72 }}
-                                to={{ top: page === "about" ? 0 : 72 }}
+                                to={{ top: page === this.pageCode ? 0 : 72 }}
                                 config={{ easing: easing.easeCubicInOut, duration: 800, delay: 750 }}
                             >
                                 {(props) => (
@@ -44,7 +45,7 @@ export default class About extends React.Component<Props> {
                             </Spring>
                             <Spring
                                 from={{ top: 72 }}
-                                to={{ top: page === "about" ? 0 : 72 }}
+                                to={{ top: page === this.pageCode ? 0 : 72 }}
                                 config={{ easing: easing.easeCubicInOut, duration: 800, delay: 1050 }}
                             >
                                 {(props) => (
@@ -64,7 +65,7 @@ export default class About extends React.Component<Props> {
                             </Spring>
                             <Spring
                                 from={{ top: 72 }}
-                                to={{ top: page === "about" ? 0 : 72 }}
+                                to={{ top: page === this.pageCode ? 0 : 72 }}
                                 config={{ easing: easing.easeCubicInOut, duration: 800, delay: 1350 }}
                             >
                                 {(props) => (

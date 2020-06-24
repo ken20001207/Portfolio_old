@@ -8,11 +8,11 @@ import Raising from "../../components/Raising/Raising";
 import { zh_tw } from "../../lang";
 
 interface Props {
-    page: string;
+    page: number;
 }
 
 export default class MyService extends React.Component<Props> {
-    public pageCode = "service";
+    public pageCode = 2;
     render() {
         var page = this.props.page;
         return (

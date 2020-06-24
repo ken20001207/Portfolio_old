@@ -5,19 +5,19 @@ import * as easing from "d3-ease";
 import "./Welcome.less";
 
 interface Props {
-    page: string;
+    page: number;
 }
 
 export default class Welcome extends React.Component<Props> {
     render() {
         var page = this.props.page;
         return (
-            <Spring from={{ left: "35%" }} to={{ left: page === "welcome" ? "35%" : "55%" }} config={{ easing: easing.easeCubicInOut }}>
+            <Spring from={{ left: "35%" }} to={{ left: page === 0 ? "35%" : "55%" }} config={{ easing: easing.easeCubicInOut }}>
                 {(titleProps) => (
                     <div className="title" style={titleProps}>
                         <Spring
                             from={{ top: 130 }}
-                            to={{ top: page === "welcome" || page === "about" ? 0 : 130 }}
+                            to={{ top: page === 0 || page === 1 ? 0 : 130 }}
                             config={{ easing: easing.easeCubicInOut, duration: 800, delay: 500 }}
                         >
                             {(props) => (
@@ -28,7 +28,7 @@ export default class Welcome extends React.Component<Props> {
                         </Spring>
                         <Spring
                             from={{ top: 80 }}
-                            to={{ top: page === "welcome" || page === "about" ? 0 : 130 }}
+                            to={{ top: page === 0 || page === 1 ? 0 : 130 }}
                             config={{ easing: easing.easeCubicInOut, duration: 800, delay: 800 }}
                         >
                             {(props) => (
