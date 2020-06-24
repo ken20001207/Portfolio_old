@@ -18,15 +18,15 @@ export default class MyService extends React.Component<Props> {
         return (
             <div className="serviceBG">
                 <Spring
-                    from={{ mainr: 0 }}
-                    to={{ mainr: page === this.pageCode ? 1920 : 0 }}
-                    config={{ easing: easing.easeCubicInOut, delay: 600, duration: 1200 }}
+                    from={{ mainr: "0%" }}
+                    to={{ mainr: page === this.pageCode ? "100%" : "0%" }}
+                    config={{ easing: easing.easeCubicInOut, delay: page === this.pageCode ? 600 : 1050 }}
                 >
                     {(bgProps) => (
                         <Spring
                             from={{ rightr: 0 }}
                             to={{ rightr: page === this.pageCode ? window.innerWidth / 2 : 0 }}
-                            config={{ easing: easing.easeCubicInOut, delay: 800, duration: 1200 }}
+                            config={{ easing: easing.easeCubicInOut, delay: page === this.pageCode ? 750 : 900 }}
                         >
                             {(rightProps) => (
                                 <svg>
@@ -40,11 +40,15 @@ export default class MyService extends React.Component<Props> {
                 <Row style={{ position: "absolute", width: "100%", height: "90vh" }}>
                     <Col lg={6}>
                         <div className="description">
-                            <Raising active={page === this.pageCode}>
+                            <Raising active={page === this.pageCode} delay={page === this.pageCode ? 900 : 750}>
                                 <h1>專長與技能</h1>
                             </Raising>
 
-                            <Raising active={page === this.pageCode} height={120} delay={600}>
+                            <Raising
+                                active={page === this.pageCode}
+                                height={120}
+                                delay={page === this.pageCode ? 1050 : 600}
+                            >
                                 <p>
                                     我擅長為複雜的問題提供一系列的解決方案
                                     <br />
@@ -58,7 +62,7 @@ export default class MyService extends React.Component<Props> {
                                 keys={(item) => item}
                                 from={{ top: 72 }}
                                 to={{ top: page === this.pageCode ? 0 : 72 }}
-                                config={{ duration: 2000, easing: easing.easeCubicInOut }}
+                                config={{ easing: easing.easeCubicInOut, delay: page === this.pageCode ? 1200 : 600 }}
                             >
                                 {(item) => (props) => (
                                     <div className="raise-warpper">
@@ -74,7 +78,11 @@ export default class MyService extends React.Component<Props> {
                         <div className="skills">
                             <Row>
                                 <Col sm={6}>
-                                    <Raising active={page === this.pageCode} height={36} delay={1200}>
+                                    <Raising
+                                        active={page === this.pageCode}
+                                        height={36}
+                                        delay={page === this.pageCode ? 1050 : 450}
+                                    >
                                         <h5>設計技能</h5>
                                     </Raising>
                                     <Trail
@@ -82,7 +90,10 @@ export default class MyService extends React.Component<Props> {
                                         keys={(item) => item}
                                         from={{ top: 72 }}
                                         to={{ top: page === this.pageCode ? 0 : 72 }}
-                                        config={{ duration: 2000, delay: 800, easing: easing.easeCubicInOut }}
+                                        config={{
+                                            easing: easing.easeCubicInOut,
+                                            delay: page === this.pageCode ? 1050 : 450,
+                                        }}
                                     >
                                         {(item) => (props) => (
                                             <div className="raise-warpper">
@@ -92,7 +103,11 @@ export default class MyService extends React.Component<Props> {
                                     </Trail>
                                 </Col>
                                 <Col sm={6}>
-                                    <Raising active={page === this.pageCode} height={36} delay={1400}>
+                                    <Raising
+                                        active={page === this.pageCode}
+                                        height={36}
+                                        delay={page === this.pageCode ? 1200 : 300}
+                                    >
                                         <h5>前端技能</h5>
                                     </Raising>
                                     <Trail
@@ -100,7 +115,10 @@ export default class MyService extends React.Component<Props> {
                                         keys={(item) => item}
                                         from={{ top: 72 }}
                                         to={{ top: page === this.pageCode ? 0 : 72 }}
-                                        config={{ duration: 2000, delay: 800, easing: easing.easeCubicInOut }}
+                                        config={{
+                                            easing: easing.easeCubicInOut,
+                                            delay: page === this.pageCode ? 1200 : 300,
+                                        }}
                                     >
                                         {(item) => (props) => (
                                             <div className="raise-warpper">
@@ -112,7 +130,11 @@ export default class MyService extends React.Component<Props> {
                             </Row>
                             <Row style={{ marginTop: 48 }}>
                                 <Col sm={6}>
-                                    <Raising active={page === this.pageCode} height={36} delay={1600}>
+                                    <Raising
+                                        active={page === this.pageCode}
+                                        height={36}
+                                        delay={page === this.pageCode ? 1350 : 150}
+                                    >
                                         <h5>後端技能</h5>
                                     </Raising>
 
@@ -121,7 +143,10 @@ export default class MyService extends React.Component<Props> {
                                         keys={(item) => item}
                                         from={{ top: 72 }}
                                         to={{ top: page === this.pageCode ? 0 : 72 }}
-                                        config={{ duration: 2000, delay: 800, easing: easing.easeCubicInOut }}
+                                        config={{
+                                            easing: easing.easeCubicInOut,
+                                            delay: page === this.pageCode ? 1350 : 150,
+                                        }}
                                     >
                                         {(item) => (props) => (
                                             <div className="raise-warpper">
@@ -131,7 +156,11 @@ export default class MyService extends React.Component<Props> {
                                     </Trail>
                                 </Col>
                                 <Col sm={6}>
-                                    <Raising active={page === this.pageCode} height={36} delay={1800}>
+                                    <Raising
+                                        active={page === this.pageCode}
+                                        height={36}
+                                        delay={page === this.pageCode ? 1500 : 0}
+                                    >
                                         <h5>程式語言技能</h5>
                                     </Raising>
                                     <Trail
@@ -139,7 +168,10 @@ export default class MyService extends React.Component<Props> {
                                         keys={(item) => item}
                                         from={{ top: 72 }}
                                         to={{ top: page === this.pageCode ? 0 : 72 }}
-                                        config={{ duration: 2000, delay: 800, easing: easing.easeCubicInOut }}
+                                        config={{
+                                            easing: easing.easeCubicInOut,
+                                            delay: page === this.pageCode ? 1500 : 0,
+                                        }}
                                     >
                                         {(item) => (props) => (
                                             <div className="raise-warpper">
