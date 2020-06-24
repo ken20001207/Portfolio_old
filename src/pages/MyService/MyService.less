@@ -1,13 +1,17 @@
 @import "../../variables.less";
 
 .serviceBG {
-    position: relative;
-    width: 100%;
-    height: calc(95vh - 64px);
+    position: absolute;
+    top: 10vh;
+    left: 5%;
+    height: 80vh;
+    width: 90%;
     svg {
         float: left;
+        top: 10vh;
+        left: 5%;
+        height: 80vh;
         width: 100%;
-        height: calc(95vh - 64px);
 
         .mainCircle {
             fill: @color1;
@@ -20,7 +24,7 @@
 
     .description {
         position: absolute;
-        top: 15vh;
+        top: calc(50vh - 360px);
         left: calc(50% - 204px);
         font-weight: 800;
         h1 {
@@ -47,14 +51,14 @@
     .skills {
         position: absolute;
         top: calc(50vh - 400px);
-        left: calc(50% - 240px);
+        left: 15%;
         width: 80%;
         font-weight: 800;
         h5 {
             position: relative;
             font-size: 18px;
             color: white;
-            margin-bottom: 12px;
+            margin-bottom: 0px;
         }
         p {
             position: relative;
