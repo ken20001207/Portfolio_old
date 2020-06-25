@@ -14,6 +14,7 @@ interface Props {
 interface State {
     watchingWork: WorkData | undefined;
     workWindowZindex: number;
+    image: number;
 }
 
 export default class DesignPortfolio extends React.Component<Props, State> {
@@ -23,10 +24,23 @@ export default class DesignPortfolio extends React.Component<Props, State> {
         this.state = {
             watchingWork: undefined,
             workWindowZindex: -1,
+            image: 0,
         };
     }
 
     pageCode = 3;
+
+    chage_image = (next: boolean) => {
+        if (next) {
+            if (this.state.image + 1 === this.state.watchingWork?.images.length) {
+                this.setState({ image: 0 });
+            } else this.setState({ image: this.state.image + 1 });
+        } else {
+            if (this.state.image === 0) {
+                this.setState({ image: (this.state.watchingWork?.images.length ? this.state.watchingWork?.images.length : 1) - 1 });
+            } else this.setState({ image: this.state.image - 1 });
+        }
+    };
 
     toggle_watch_work = (work: WorkData | undefined) => {
         if (work) this.setState({ watchingWork: work, workWindowZindex: 50 });
@@ -121,7 +135,7 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                     {(props) => (
                         <div className="work-detail" style={{ ...props, zIndex: this.state.workWindowZindex }}>
                             <i className="gg-arrow-left closebutton" onClick={() => this.toggle_watch_work(undefined)} />
-                            <Row style={{ height: "80vh" }}>
+                            <Row style={{ height: "80vh", width: "95%" }}>
                                 <Col lg={6}>
                                     <div className="infos">
                                         <h3>{this.state.watchingWork?.h2}</h3>
@@ -167,18 +181,25 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                                                         <i className="gg-image" />
                                                     </div>
                                                     <h4 style={{ display: "inline-block", marginLeft: 18 }}>圖像預覽</h4>
-                                                    <iframe
-                                                        title="work-preview"
-                                                        className="imgur-embed-iframe-pub imgur-embed-iframe-pub-a-nZzgszQ-true-540"
-                                                        scrolling="no"
-                                                        src={
-                                                            "http://imgur.com/a/" +
-                                                            this.state.watchingWork?.imgur_id +
-                                                            "/embed?pub=true&amp;ref=http%3A%2F%2Flocalhost%3A3000%2F&amp;"
-                                                        }
-                                                        id={"imgur-embed-iframe-pub-a-" + this.state.watchingWork?.imgur_id}
+                                                    <img
                                                         style={{ width: "100%" }}
+                                                        src={this.state.watchingWork.images[this.state.image]}
+                                                        alt="work-img"
                                                     />
+                                                    {this.state.image > 0 ? (
+                                                        <button style={{ float: "left" }} onClick={() => this.chage_image(false)}>
+                                                            上一張
+                                                        </button>
+                                                    ) : (
+                                                        <div />
+                                                    )}
+                                                    {this.state.image < this.state.watchingWork.images.length - 1 ? (
+                                                        <button style={{ float: "right" }} onClick={() => this.chage_image(true)}>
+                                                            下一張
+                                                        </button>
+                                                    ) : (
+                                                        <div />
+                                                    )}
                                                 </>
                                             )}
                                         </div>
