@@ -6,16 +6,24 @@ export default class SocialLinks extends React.Component {
         return (
             <div className="social-link">
                 <div className="icon">
-                    <img src="assets/icons/instagram.svg" alt="instagram" />
+                    <a href="https://www.instagram.com/yuanlin___">
+                        <img src="assets/icons/instagram.svg" alt="instagram" />
+                    </a>
                 </div>
                 <div className="icon">
-                    <img src="assets/icons/facebook.svg" alt="facebook" />
+                    <a href="https://www.facebook.com/ken20001207">
+                        <img src="assets/icons/facebook.svg" alt="facebook" />
+                    </a>
                 </div>
                 <div className="icon">
-                    <img src="assets/icons/github.svg" alt="github" />
+                    <a href="https://github.com/ken20001207">
+                        <img src="assets/icons/github.svg" alt="github" />
+                    </a>
                 </div>
                 <div className="icon">
-                    <img src="assets/icons/behance.svg" alt="behance" />
+                    <a href="https://www.behance.net/yuanlinlin">
+                        <img src="assets/icons/behance.svg" alt="behance" />
+                    </a>
                 </div>
             </div>
         );
