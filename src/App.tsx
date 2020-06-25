@@ -8,7 +8,8 @@ import ScrollIndicator from "./components/ScrollIndicator/ScrollIndicator";
 import Welcome from "./pages/Welcome/Welcome";
 import About from "./pages/About/About";
 import MyService from "./pages/MyService/MyService";
-import Portfolio from "./pages/Portfolio/Portfolio";
+import DesignPortfolio from "./pages/DesignPortfolio/DesignPortfolio";
+import DevPortfolio from "./pages/DevPortfolio/DevPortfolio";
 
 interface State {
     page: number;
@@ -26,14 +27,13 @@ class App extends Component<{}, State> {
 
     /** Get current page by scrollY */
     locateSection = () => {
-        // welcome
-        if (window.scrollY === 0) this.setState({ page: 0 });
-        // about
-        else if (window.scrollY >= 0 && window.scrollY < 1200) this.setState({ page: 1 });
-        // service
-        else if (window.scrollY >= 1200 && window.scrollY < 2400) this.setState({ page: 2 });
-        // portfolio
-        else if (window.scrollY >= 2400 && window.scrollY < 3600) this.setState({ page: 3 });
+        const page_break_points = [0, 1200, 2400, 3600, 4800, 6000];
+        for (var i = 0; i < page_break_points.length; i++) {
+            if (window.scrollY >= page_break_points[i] && window.scrollY < page_break_points[i + 1]) {
+                this.setState({ page: i });
+                return;
+            }
+        }
     };
 
     componentDidMount = () => {
@@ -68,7 +68,8 @@ class App extends Component<{}, State> {
                 <Welcome page={this.state.page} />
                 <About page={this.state.page} />
                 <MyService page={this.state.page} />
-                <Portfolio page={this.state.page} />
+                <DesignPortfolio page={this.state.page} />
+                <DevPortfolio page={this.state.page} />
             </div>
         );
     }
