@@ -3,6 +3,7 @@ import { Spring, Trail } from "react-spring/renderprops";
 import * as easing from "d3-ease";
 
 import "./About.less";
+import Raising from "../../components/Raising/Raising";
 
 interface Props {
     page: number;
@@ -15,28 +16,22 @@ export default class About extends React.Component<Props> {
         {
             key: 1,
             item: (
-                <h4>
-                    目前在
-                    <div className="highlight-text">
-                        <div className="text-bg" /> 浙江大學
-                    </div>
-                    主修
-                    <div className="highlight-text">
-                        <div className="text-bg" /> 資訊工程
-                    </div>
-                </h4>
+                <>
+                    <h4 style={{ display: "inline" }}>目前在 </h4>
+                    <h4 className="highlight3">浙江大學</h4>
+                    <h4 style={{ display: "inline" }}> 主修 </h4>
+                    <h4 className="highlight3">資訊工程</h4>
+                </>
             ),
         },
         {
             key: 2,
             item: (
-                <h4>
-                    擁有一年的
-                    <div className="highlight-text">
-                        <div className="text-bg" /> React 前端開發
-                    </div>
-                    實務經驗
-                </h4>
+                <>
+                    <h4 style={{ display: "inline" }}>擁有一年的 </h4>
+                    <h4 className="highlight3">React 前端開發</h4>
+                    <h4 style={{ display: "inline" }}> 實務經驗</h4>
+                </>
             ),
         },
     ];
@@ -51,21 +46,9 @@ export default class About extends React.Component<Props> {
                 {(bgWidthProps) => (
                     <div className="intro" style={bgWidthProps}>
                         <div className="about">
-                            <Spring
-                                from={{ top: 72 }}
-                                to={{ top: page === this.pageCode ? 0 : 72 }}
-                                config={{
-                                    easing: easing.easeCubicInOut,
-                                    duration: 800,
-                                    delay: page === this.pageCode ? 600 : 300,
-                                }}
-                            >
-                                {(props) => (
-                                    <div className="raise-warpper">
-                                        <h3 style={props}>關於我</h3>
-                                    </div>
-                                )}
-                            </Spring>
+                            <Raising active={page === this.pageCode} delay={page === this.pageCode ? 750 : 300}>
+                                <h2>關於我</h2>
+                            </Raising>
                             <Trail
                                 items={this.about}
                                 keys={(item) => item.key}

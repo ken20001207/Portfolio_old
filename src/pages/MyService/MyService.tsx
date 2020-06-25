@@ -41,14 +41,10 @@ export default class MyService extends React.Component<Props> {
                     <Col lg={6}>
                         <div className="description">
                             <Raising active={page === this.pageCode} delay={page === this.pageCode ? 900 : 750}>
-                                <h1>專長與技能</h1>
+                                <h1 className="highlight2">專長與技能</h1>
                             </Raising>
 
-                            <Raising
-                                active={page === this.pageCode}
-                                height={120}
-                                delay={page === this.pageCode ? 1050 : 600}
-                            >
+                            <Raising active={page === this.pageCode} height={120} delay={page === this.pageCode ? 1050 : 600}>
                                 <p>
                                     我擅長為複雜的問題提供一系列的解決方案
                                     <br />
@@ -78,11 +74,7 @@ export default class MyService extends React.Component<Props> {
                         <div className="skills">
                             <Row>
                                 <Col sm={6}>
-                                    <Raising
-                                        active={page === this.pageCode}
-                                        height={36}
-                                        delay={page === this.pageCode ? 1050 : 450}
-                                    >
+                                    <Raising active={page === this.pageCode} height={36} delay={page === this.pageCode ? 1050 : 450}>
                                         <h5>設計技能</h5>
                                     </Raising>
                                     <Trail
@@ -103,11 +95,7 @@ export default class MyService extends React.Component<Props> {
                                     </Trail>
                                 </Col>
                                 <Col sm={6}>
-                                    <Raising
-                                        active={page === this.pageCode}
-                                        height={36}
-                                        delay={page === this.pageCode ? 1200 : 300}
-                                    >
+                                    <Raising active={page === this.pageCode} height={36} delay={page === this.pageCode ? 1200 : 300}>
                                         <h5>前端技能</h5>
                                     </Raising>
                                     <Trail
@@ -130,11 +118,7 @@ export default class MyService extends React.Component<Props> {
                             </Row>
                             <Row style={{ marginTop: 48 }}>
                                 <Col sm={6}>
-                                    <Raising
-                                        active={page === this.pageCode}
-                                        height={36}
-                                        delay={page === this.pageCode ? 1350 : 150}
-                                    >
+                                    <Raising active={page === this.pageCode} height={36} delay={page === this.pageCode ? 1350 : 150}>
                                         <h5>後端技能</h5>
                                     </Raising>
 
@@ -156,11 +140,7 @@ export default class MyService extends React.Component<Props> {
                                     </Trail>
                                 </Col>
                                 <Col sm={6}>
-                                    <Raising
-                                        active={page === this.pageCode}
-                                        height={36}
-                                        delay={page === this.pageCode ? 1500 : 0}
-                                    >
+                                    <Raising active={page === this.pageCode} height={36} delay={page === this.pageCode ? 1500 : 0}>
                                         <h5>程式語言技能</h5>
                                     </Raising>
                                     <Trail

@@ -56,7 +56,7 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                     <Col lg={6} style={{ height: "80vh", paddingLeft: "10%" }}>
                         <div className="des">
                             <Raising active={page === this.pageCode} delay={page === this.pageCode ? 1200 : 450}>
-                                <h1>設計作品</h1>
+                                <h1 className="highlight1">設計作品</h1>
                             </Raising>
                             <Raising active={page === this.pageCode} height={108} delay={page === this.pageCode ? 1350 : 300}>
                                 <p>為您精選四個過去的設計專案</p>
@@ -122,7 +122,18 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                         <div className="work-detail" style={{ ...props, zIndex: this.state.workWindowZindex }}>
                             <i className="gg-arrow-left closebutton" onClick={() => this.toggle_watch_work(undefined)} />
                             <Row style={{ height: "80vh" }}>
-                                <Col lg={6}></Col>
+                                <Col lg={6}>
+                                    <div className="infos">
+                                        <h3>{this.state.watchingWork?.h2}</h3>
+                                        <h1 className="highlight1">{this.state.watchingWork?.h1}</h1>
+                                        <p>{this.state.watchingWork?.p}</p>
+                                        {this.state.watchingWork?.tools.map((t) => (
+                                            <p className="hashtag" style={{ display: "inline", marginRight: 16 }}>
+                                                #{t}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </Col>
                                 {this.state.watchingWork ? (
                                     <Col lg={6} style={{ padding: 32 }}>
                                         <div
