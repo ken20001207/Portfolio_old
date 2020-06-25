@@ -4,8 +4,8 @@ export interface WorkData {
     h2: string;
     h1: string;
     cover_image_url: string;
-    imgur_album: string;
-    movie: string | undefined;
+    imgur_id: string;
+    youtube_id: string | undefined;
     github: string | undefined;
 }
 
@@ -16,8 +16,8 @@ export const works: WorkData[] = [
         h1: "一卡通 UI Redesign",
         type: "design",
         cover_image_url: "https://i.imgur.com/h1Owkzi.png",
-        imgur_album: "yPJ3zK5",
-        movie: undefined,
+        imgur_id: "yPJ3zK5",
+        youtube_id: undefined,
         github: undefined,
     },
     {
@@ -26,8 +26,8 @@ export const works: WorkData[] = [
         h1: "活動紀錄電影",
         type: "design",
         cover_image_url: "https://i.imgur.com/sjKGEuj.jpg",
-        imgur_album: "nZzgszQ",
-        movie: "https://www.youtube.com/watch?v=awm98eUD6gU",
+        imgur_id: "nZzgszQ",
+        youtube_id: "awm98eUD6gU",
         github: undefined,
     },
     {
@@ -36,8 +36,8 @@ export const works: WorkData[] = [
         h1: "活動主視覺橫幅",
         type: "design",
         cover_image_url: "https://i.imgur.com/1rgFf2s.jpg",
-        imgur_album: "bKVFRAu",
-        movie: undefined,
+        imgur_id: "bKVFRAu",
+        youtube_id: undefined,
         github: undefined,
     },
     {
@@ -46,8 +46,8 @@ export const works: WorkData[] = [
         h1: "大學備審資料設計",
         type: "design",
         cover_image_url: "https://i.imgur.com/BXIbnEE.png",
-        imgur_album: "mm0F1oG",
-        movie: undefined,
+        imgur_id: "mm0F1oG",
+        youtube_id: undefined,
         github: undefined,
     },
     {
@@ -56,8 +56,8 @@ export const works: WorkData[] = [
         h1: "輕排班",
         type: "development",
         cover_image_url: "https://i.imgur.com/AitULXf.png",
-        imgur_album: "rGij8Fs",
-        movie: undefined,
+        imgur_id: "rGij8Fs",
+        youtube_id: "9qNr4hSvSyc",
         github: "https://github.com/ken20001207/schedule",
     },
     {
@@ -66,8 +66,8 @@ export const works: WorkData[] = [
         h1: "Reco 行事曆平台",
         type: "development",
         cover_image_url: "https://i.imgur.com/ZuF4iIH.png",
-        imgur_album: "ApiDaBO",
-        movie: undefined,
+        imgur_id: "ApiDaBO",
+        youtube_id: undefined,
         github: "https://github.com/ken20001207/reco-desktop",
     },
     {
@@ -76,8 +76,8 @@ export const works: WorkData[] = [
         h1: "商品資料匯入程式",
         type: "development",
         cover_image_url: "https://i.imgur.com/SkbvAux.png",
-        imgur_album: "De3jaJd",
-        movie: "https://drive.google.com/file/d/1ZXdTf7RrRwLstUgcfHoZ3hP6YSsbpYSt/preview",
+        imgur_id: "De3jaJd",
+        youtube_id: "b8-oIN55vik",
         github: "https://github.com/ken20001207/fetch1688",
     },
     {
@@ -86,8 +86,8 @@ export const works: WorkData[] = [
         h1: "開獎機率統計軟體",
         type: "development",
         cover_image_url: "https://i.imgur.com/ljbm4iO.png",
-        imgur_album: "IepEYhE",
-        movie: undefined,
+        imgur_id: "IepEYhE",
+        youtube_id: undefined,
         github: "https://github.com/ken20001207/statistic",
     },
     {
@@ -96,8 +96,8 @@ export const works: WorkData[] = [
         h1: "Hoost 軟體管理後台",
         type: "development",
         cover_image_url: "https://i.imgur.com/AmONwLk.png",
-        imgur_album: "xoNSR4W",
-        movie: undefined,
+        imgur_id: "xoNSR4W",
+        youtube_id: undefined,
         github: undefined,
     },
     {
@@ -106,8 +106,8 @@ export const works: WorkData[] = [
         h1: "VueShop 全端電商系統",
         type: "development",
         cover_image_url: "https://i.imgur.com/lUlcmll.png",
-        imgur_album: "52uXpCK",
-        movie: undefined,
+        imgur_id: "52uXpCK",
+        youtube_id: undefined,
         github: "https://github.com/ken20001207/VueShop",
     },
 ];

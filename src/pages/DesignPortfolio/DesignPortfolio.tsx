@@ -17,6 +17,7 @@ interface State {
 }
 
 export default class DesignPortfolio extends React.Component<Props, State> {
+    rightcol: HTMLDivElement | null = null;
     constructor(props: Readonly<Props>) {
         super(props);
         this.state = {
@@ -122,24 +123,58 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                             <i className="gg-arrow-left closebutton" onClick={() => this.toggle_watch_work(undefined)} />
                             <Row style={{ height: "80vh" }}>
                                 <Col lg={6}></Col>
-                                <Col lg={6} style={{ padding: 64 }}>
-                                    {this.state.watchingWork ? (
-                                        <iframe
-                                            title="work-preview"
-                                            className="imgur-embed-iframe-pub imgur-embed-iframe-pub-a-nZzgszQ-true-540"
-                                            scrolling="no"
-                                            src={
-                                                "http://imgur.com/a/" +
-                                                this.state.watchingWork?.imgur_album +
-                                                "/embed?pub=true&amp;ref=http%3A%2F%2Flocalhost%3A3000%2F&amp;"
-                                            }
-                                            id={"imgur-embed-iframe-pub-a-" + this.state.watchingWork?.imgur_album}
-                                            style={{ height: "calc(80vh - 128px)", width: "100% " }}
-                                        />
-                                    ) : (
-                                        <div />
-                                    )}
-                                </Col>
+                                {this.state.watchingWork ? (
+                                    <Col lg={6} style={{ padding: 32 }}>
+                                        <div
+                                            ref={(r) => {
+                                                this.rightcol = r;
+                                            }}
+                                        >
+                                            {this.state.watchingWork?.youtube_id ? (
+                                                <>
+                                                    <div style={{ display: "inline-block" }}>
+                                                        <i className="gg-youtube" />
+                                                    </div>
+                                                    <h4 style={{ display: "inline-block", marginLeft: 18 }}>影音預覽</h4>
+                                                    <iframe
+                                                        title="work-preview"
+                                                        width={this.rightcol?.clientWidth}
+                                                        height={
+                                                            ((this.rightcol?.clientWidth ? this.rightcol?.clientWidth : 900) / 1920) * 1080
+                                                        }
+                                                        src={
+                                                            "https://www.youtube.com/embed/" +
+                                                            this.state.watchingWork.youtube_id +
+                                                            "?autoplay=1"
+                                                        }
+                                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                    />
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <div style={{ display: "inline-block" }}>
+                                                        <i className="gg-image" />
+                                                    </div>
+                                                    <h4 style={{ display: "inline-block", marginLeft: 18 }}>圖像預覽</h4>
+                                                    <iframe
+                                                        title="work-preview"
+                                                        className="imgur-embed-iframe-pub imgur-embed-iframe-pub-a-nZzgszQ-true-540"
+                                                        scrolling="no"
+                                                        src={
+                                                            "http://imgur.com/a/" +
+                                                            this.state.watchingWork?.imgur_id +
+                                                            "/embed?pub=true&amp;ref=http%3A%2F%2Flocalhost%3A3000%2F&amp;"
+                                                        }
+                                                        id={"imgur-embed-iframe-pub-a-" + this.state.watchingWork?.imgur_id}
+                                                        style={{ width: "100%" }}
+                                                    />
+                                                </>
+                                            )}
+                                        </div>
+                                    </Col>
+                                ) : (
+                                    <div />
+                                )}
                             </Row>
                         </div>
                     )}
