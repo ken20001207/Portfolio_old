@@ -14,24 +14,16 @@ export default class Welcome extends React.Component<Props> {
         var page = this.props.page;
         return (
             <Spring
-                from={{ left: "35%" }}
-                to={{ left: page === 0 ? "35%" : "55%" }}
+                from={{ left: "calc(50% - 180px)" }}
+                to={{ left: page === 0 ? "calc(50% - 180px)" : "calc(70% - 180px)" }}
                 config={{ easing: easing.easeCubicInOut, delay: page === 0 ? 600 : 0 }}
             >
                 {(titleProps) => (
                     <div className="title" style={titleProps}>
-                        <Raising
-                            active={page === 0 || page === 1}
-                            height={108}
-                            delay={page === 0 || page === 1 ? 600 : 150}
-                        >
+                        <Raising active={page === 0 || page === 1} height={108} delay={page === 0 || page === 1 ? 600 : 150}>
                             <h1>你好</h1>
                         </Raising>
-                        <Raising
-                            active={page === 0 || page === 1}
-                            height={72}
-                            delay={page === 0 || page === 1 ? 750 : 0}
-                        >
+                        <Raising active={page === 0 || page === 1} height={72} delay={page === 0 || page === 1 ? 750 : 0}>
                             <h2>
                                 我是
                                 <div className="highlight-text">
