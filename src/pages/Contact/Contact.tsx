@@ -40,7 +40,7 @@ export default class Contact extends React.Component<Props> {
                             <a href="https://www.facebook.com/ken20001207">
                                 <h4 style={{ display: "inline", marginRight: 8 }}>https://www.facebook.com/ken20001207</h4>
                             </a>
-                            <a href="https://m.me/ken20001207" className="fb-msg-btn" target="_blank">
+                            <a href="https://m.me/ken20001207" className="fb-msg-btn">
                                 Send Text
                             </a>
                         </div>
