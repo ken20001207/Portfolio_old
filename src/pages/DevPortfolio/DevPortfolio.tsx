@@ -20,6 +20,8 @@ interface State {
 
 export default class DevPortfolio extends React.Component<Props, State> {
     rightcol: HTMLDivElement | null = null;
+    pageCode = 4;
+
     constructor(props: Readonly<Props>) {
         super(props);
         this.state = {
@@ -41,8 +43,6 @@ export default class DevPortfolio extends React.Component<Props, State> {
             } else this.setState({ image: this.state.image - 1 });
         }
     };
-
-    pageCode = 4;
 
     toggle_watch_work = (work: WorkData | undefined) => {
         if (work) this.setState({ watchingWork_opened: true, watchingWork: work, workWindowZindex: 50, image: 0 });

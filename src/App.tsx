@@ -28,7 +28,7 @@ class App extends Component<{}, State> {
 
     /** Get current page by scrollY */
     locateSection = () => {
-        const page_break_points = [0, 1, 1200, 2400, 3600, 4800];
+        const page_break_points = [0, 1, 1200, 2400, 3600, 4800, 6000];
         for (var i = 0; i < page_break_points.length; i++) {
             if (window.scrollY >= page_break_points[i] && window.scrollY < page_break_points[i + 1]) {
                 this.setState({ page: i });
