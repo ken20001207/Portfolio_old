@@ -14,6 +14,7 @@ interface Props {
 interface State {
     watchingWork: WorkData | undefined;
     workWindowZindex: number;
+    watchingWork_opened: boolean;
     image: number;
 }
 
@@ -22,6 +23,7 @@ export default class DesignPortfolio extends React.Component<Props, State> {
     constructor(props: Readonly<Props>) {
         super(props);
         this.state = {
+            watchingWork_opened: false,
             watchingWork: undefined,
             workWindowZindex: -1,
             image: 0,
@@ -43,17 +45,17 @@ export default class DesignPortfolio extends React.Component<Props, State> {
     };
 
     toggle_watch_work = (work: WorkData | undefined) => {
-        if (work) this.setState({ watchingWork: work, workWindowZindex: 50 });
+        if (work) this.setState({ watchingWork_opened: true, watchingWork: work, workWindowZindex: 50, image: 0 });
         else {
-            this.setState({ watchingWork: undefined });
-            setTimeout(() => this.setState({ workWindowZindex: -1 }), 500);
+            this.setState({ watchingWork_opened: false });
+            setTimeout(() => this.setState({ workWindowZindex: -1, watchingWork: undefined }), 600);
         }
     };
 
     componentWillReceiveProps = (nextProps: Props) => {
         if (nextProps.page !== this.pageCode) {
-            this.setState({ watchingWork: undefined });
-            setTimeout(() => this.setState({ workWindowZindex: -1 }), 500);
+            this.setState({ watchingWork_opened: false });
+            setTimeout(() => this.setState({ workWindowZindex: -1, watchingWork: undefined }), 600);
         }
     };
 
@@ -112,13 +114,12 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                                                         transform: scaleProp.transform,
                                                     }}
                                                 >
-                                                    <div
+                                                    <img
+                                                        alt="Loading ..."
                                                         className="workblock-inner"
-                                                        style={{
-                                                            backgroundImage: "url(" + item.cover_image_url + ")",
-                                                        }}
+                                                        src={item.cover_image_url}
                                                         onClick={() => this.toggle_watch_work(item)}
-                                                    ></div>
+                                                    />
                                                     <h4>{item.h2}</h4>
                                                     <h1>{item.h1}</h1>
                                                 </div>
@@ -138,71 +139,78 @@ export default class DesignPortfolio extends React.Component<Props, State> {
                             <Row style={{ height: "80vh", width: "95%" }}>
                                 <Col lg={6}>
                                     <div className="infos">
-                                        <h3>{this.state.watchingWork?.h2}</h3>
-                                        <h1 className="highlight1">{this.state.watchingWork?.h1}</h1>
-                                        <p>{this.state.watchingWork?.p}</p>
-                                        {this.state.watchingWork?.tools.map((t) => (
-                                            <p className="hashtag" style={{ display: "inline", marginRight: 16 }}>
-                                                #{t}
-                                            </p>
-                                        ))}
+                                        <Raising active={this.state.watchingWork_opened} delay={this.state.watchingWork_opened ? 150 : 600}>
+                                            <h3>{this.state.watchingWork?.h2}</h3>
+                                        </Raising>
+                                        <Raising active={this.state.watchingWork_opened} delay={this.state.watchingWork_opened ? 300 : 450}>
+                                            <h1 className="highlight1">{this.state.watchingWork?.h1}</h1>
+                                        </Raising>
+                                        <Raising active={this.state.watchingWork_opened} delay={this.state.watchingWork_opened ? 450 : 300}>
+                                            <p>{this.state.watchingWork?.p}</p>
+                                        </Raising>
+                                        <Raising active={this.state.watchingWork_opened} delay={this.state.watchingWork_opened ? 600 : 150}>
+                                            {this.state.watchingWork?.tools.map((t) => (
+                                                <p className="hashtag" style={{ display: "inline", marginRight: 16 }}>
+                                                    #{t}
+                                                </p>
+                                            ))}
+                                        </Raising>
                                     </div>
                                 </Col>
                                 {this.state.watchingWork ? (
-                                    <Col lg={6} style={{ padding: 32 }}>
-                                        <div
-                                            ref={(r) => {
-                                                this.rightcol = r;
-                                            }}
+                                    <Col lg={6} style={{ padding: 64 }}>
+                                        <Raising
+                                            height={720}
+                                            active={this.state.watchingWork_opened}
+                                            delay={this.state.watchingWork_opened ? 750 : 0}
                                         >
-                                            {this.state.watchingWork?.youtube_id ? (
-                                                <>
-                                                    <div style={{ display: "inline-block" }}>
-                                                        <i className="gg-youtube" />
-                                                    </div>
-                                                    <h4 style={{ display: "inline-block", marginLeft: 18 }}>影音預覽</h4>
-                                                    <iframe
-                                                        title="work-preview"
-                                                        width={this.rightcol?.clientWidth}
-                                                        height={
-                                                            ((this.rightcol?.clientWidth ? this.rightcol?.clientWidth : 900) / 1920) * 1080
-                                                        }
-                                                        src={
-                                                            "https://www.youtube.com/embed/" +
-                                                            this.state.watchingWork.youtube_id +
-                                                            "?autoplay=1"
-                                                        }
-                                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                    />
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div style={{ display: "inline-block" }}>
-                                                        <i className="gg-image" />
-                                                    </div>
-                                                    <h4 style={{ display: "inline-block", marginLeft: 18 }}>圖像預覽</h4>
-                                                    <img
-                                                        style={{ width: "100%" }}
-                                                        src={this.state.watchingWork.images[this.state.image]}
-                                                        alt="work-img"
-                                                    />
-                                                    {this.state.image > 0 ? (
+                                            <div
+                                                ref={(r) => {
+                                                    this.rightcol = r;
+                                                }}
+                                            >
+                                                {this.state.watchingWork?.youtube_id ? (
+                                                    <>
+                                                        <div style={{ display: "inline-block" }}>
+                                                            <i className="gg-youtube" />
+                                                        </div>
+                                                        <h4 style={{ display: "inline-block", marginLeft: 18 }}>影音預覽</h4>
+                                                        <iframe
+                                                            title="work-preview"
+                                                            width={this.rightcol?.clientWidth}
+                                                            height={
+                                                                ((this.rightcol?.clientWidth ? this.rightcol?.clientWidth : 900) / 1920) *
+                                                                1080
+                                                            }
+                                                            src={
+                                                                "https://www.youtube.com/embed/" +
+                                                                this.state.watchingWork.youtube_id +
+                                                                "?autoplay=1"
+                                                            }
+                                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                        />
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <div style={{ display: "inline-block" }}>
+                                                            <i className="gg-image" />
+                                                        </div>
+                                                        <h4 style={{ display: "inline-block", marginLeft: 18 }}>圖像預覽</h4>
+                                                        <img
+                                                            style={{ width: "100%" }}
+                                                            src={this.state.watchingWork.images[this.state.image]}
+                                                            alt="Loading ..."
+                                                        />
                                                         <button style={{ float: "left" }} onClick={() => this.chage_image(false)}>
                                                             上一張
                                                         </button>
-                                                    ) : (
-                                                        <div />
-                                                    )}
-                                                    {this.state.image < this.state.watchingWork.images.length - 1 ? (
                                                         <button style={{ float: "right" }} onClick={() => this.chage_image(true)}>
                                                             下一張
                                                         </button>
-                                                    ) : (
-                                                        <div />
-                                                    )}
-                                                </>
-                                            )}
-                                        </div>
+                                                    </>
+                                                )}
+                                            </div>
+                                        </Raising>
                                     </Col>
                                 ) : (
                                     <div />

@@ -10,6 +10,7 @@ import About from "./pages/About/About";
 import MyService from "./pages/MyService/MyService";
 import DesignPortfolio from "./pages/DesignPortfolio/DesignPortfolio";
 import DevPortfolio from "./pages/DevPortfolio/DevPortfolio";
+import Contact from "./pages/Contact/Contact";
 
 interface State {
     page: number;
@@ -70,6 +71,7 @@ class App extends Component<{}, State> {
                 <MyService page={this.state.page} />
                 <DesignPortfolio page={this.state.page} />
                 <DevPortfolio page={this.state.page} />
+                <Contact page={this.state.page} />
             </div>
         );
     }
