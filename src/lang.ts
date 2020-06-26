@@ -17,5 +17,5 @@ export const zh_tw = {
         ["擅長 Python Flask", "擅長 Koa.js", "擅長 MongoDB", "曾使用 Firbase", "曾使用 MySQL"],
         ["擅長 Typescript", "擅長 Python", "擅長 Java", "曾使用 C++", "曾使用 C#", "曾使用 C"],
     ],
-    pageTitles: ["歡迎", "關於我", "我的技能", "設計作品", "開發作品", "案件發包"],
+    pageTitles: ["歡迎", "關於我", "我的技能", "設計作品", "開發作品", "聯絡我"],
 };
