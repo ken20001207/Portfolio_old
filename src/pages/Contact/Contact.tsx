@@ -30,7 +30,6 @@ export default class Contact extends React.Component<Props> {
                             <p style={{ display: "inline" }}>Line</p>
                             <a href="https://www.facebook.com/ken20001207">
                                 <h4 style={{ display: "inline", marginRight: 8 }}>varedx20001207</h4>
-                                <div className="line-it-button" data-lang="en" data-type="friend" data-lineid="varedx20001207"></div>
                             </a>
                         </div>
                     </Raising>
@@ -41,7 +40,7 @@ export default class Contact extends React.Component<Props> {
                                 <h4 style={{ display: "inline", marginRight: 8 }}>https://www.facebook.com/ken20001207</h4>
                             </a>
                             <a href="https://m.me/ken20001207" className="fb-msg-btn">
-                                Send Text
+                                Messenger
                             </a>
                         </div>
                     </Raising>
