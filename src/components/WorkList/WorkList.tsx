@@ -42,12 +42,10 @@ export default class WorkList extends Component<Props> {
                                             transform: scaleProp.transform,
                                         }}
                                     >
-                                        <img
-                                            alt="Loading ..."
-                                            className="workblock-inner"
-                                            src={item.cover_image_url}
-                                            onClick={() => this.props.toggle_watch_work(item)}
-                                        />
+                                        <picture onClick={() => this.props.toggle_watch_work(item)}>
+                                            <source className="workblock-inner" srcSet={item.cover_image_url + ".webp"} type="image/webp" />
+                                            <img className="workblock-inner" src={item.cover_image_url + ".jpg"} alt="圖片載入中" />
+                                        </picture>
                                         <h4>{item.h2}</h4>
                                         <h1>{item.h1}</h1>
                                     </div>

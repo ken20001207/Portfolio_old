@@ -3,7 +3,6 @@ import { Spring } from "react-spring/renderprops";
 import { Row, Col } from "react-grid-system";
 import Raising from "../Raising/Raising";
 import { WorkData } from "../../works";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface Props {
     watchingWork_opened: boolean;
@@ -104,11 +103,18 @@ export default class WorkDetail extends Component<Props, State> {
                                                         <i className="gg-image" />
                                                     </div>
                                                     <h4 style={{ display: "inline-block", marginLeft: 18 }}>圖像預覽</h4>
-                                                    <LazyLoadImage
-                                                        alt="Loading ..."
-                                                        src={this.props.watching_work.images[this.state.image]}
-                                                        width={"100%"}
-                                                    />
+                                                    <picture>
+                                                        <source
+                                                            style={{ width: "100%", height: "auto" }}
+                                                            srcSet={this.props.watching_work.images[this.state.image] + ".webp"}
+                                                            type="image/webp"
+                                                        />
+                                                        <img
+                                                            style={{ width: "100%", height: "auto" }}
+                                                            src={this.props.watching_work.images[this.state.image] + ".jpg"}
+                                                            alt="圖片載入中"
+                                                        />
+                                                    </picture>
                                                     <button style={{ float: "left" }} onClick={() => this.chage_image(false)}>
                                                         上一張
                                                     </button>
