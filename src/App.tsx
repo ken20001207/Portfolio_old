@@ -37,12 +37,11 @@ class App extends Component<{}, State> {
         };
     }
 
-    /** Get current page by scrollY */
-    locateSection = () => {
+    locateSection = (scrollY: number) => {
         var page_break_points = [0, 1, 1200, 2400, 3600, 4800, 6000];
 
         for (var i = 0; i < page_break_points.length; i++) {
-            if (window.scrollY >= page_break_points[i] && window.scrollY < page_break_points[i + 1]) {
+            if (scrollY >= page_break_points[i] && scrollY < page_break_points[i + 1]) {
                 this.setState({ page: i });
                 return;
             }
@@ -57,11 +56,11 @@ class App extends Component<{}, State> {
 
         // scroll listener
         window.addEventListener("scroll", () => {
-            this.locateSection();
+            this.locateSection(window.scrollY);
         });
 
         // locate the section of begin
-        this.locateSection();
+        this.locateSection(window.scrollY);
 
         const ele = document.getElementById("ipl-progress-indicator");
         if (ele) {
@@ -78,7 +77,7 @@ class App extends Component<{}, State> {
         if (!this.state.mobile)
             return (
                 <div className="main">
-                    <Topnav />
+                    <Topnav mobile={this.state.mobile} />
                     <SocialLinks />
                     <ScrollIndicator page={this.state.page} timer={this.state.timer} />
 
@@ -95,7 +94,7 @@ class App extends Component<{}, State> {
         else
             return (
                 <div className="main">
-                    <Topnav />
+                    <Topnav mobile={this.state.mobile} />
                     <ScrollIndicatorM mobile={this.state.mobile} page={this.state.page} timer={this.state.timer} />
 
                     <Suspense fallback={<div>Loading...</div>}>
