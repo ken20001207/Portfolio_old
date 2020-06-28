@@ -122,7 +122,7 @@ export default class WorkDetail extends Component<Props, State> {
                                     </div>
                                 </Raising>
                             ) : (
-                                <div />
+                                <></>
                             )}
                         </Row>
                     </div>
